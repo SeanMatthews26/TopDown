@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 3438641899099042593}
   - component: {fileID: 7710253068950841069}
   - component: {fileID: 8660491211456586558}
-  - component: {fileID: 5708934037914957611}
+  - component: {fileID: 2588875145002851197}
   m_Layer: 0
   m_Name: TestRock
   m_TagString: Untagged
@@ -86,7 +86,7 @@ SpriteRenderer:
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
-  m_SpriteSortPoint: 0
+  m_SpriteSortPoint: 1
 --- !u!114 &7710253068950841069
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -126,7 +126,7 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 0
---- !u!60 &5708934037914957611
+--- !u!60 &2588875145002851197
 PolygonCollider2D:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -161,7 +161,7 @@ PolygonCollider2D:
   m_Offset: {x: 0, y: 0}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
-    pivot: {x: 0.54155725, y: 0.32939634}
+    pivot: {x: 0.5, y: 0}
     oldSize: {x: 1, y: 1}
     newSize: {x: 1, y: 1}
     adaptiveTilingThreshold: 0.5
@@ -170,10 +170,10 @@ PolygonCollider2D:
   m_AutoTiling: 0
   m_Points:
     m_Paths:
-    - - {x: 0.20844275, y: 0.10810366}
-      - {x: -0.22905725, y: 0.10810366}
-      - {x: -0.54155725, y: -0.016896337}
-      - {x: -0.22905725, y: -0.32939634}
-      - {x: 0.27094275, y: -0.32939634}
-      - {x: 0.45844275, y: -0.14189634}
+    - - {x: 0.25, y: 0.4375}
+      - {x: -0.1875, y: 0.4375}
+      - {x: -0.5, y: 0.3125}
+      - {x: -0.1875, y: 0}
+      - {x: 0.3125, y: 0}
+      - {x: 0.5, y: 0.1875}
   m_UseDelaunayMesh: 0
