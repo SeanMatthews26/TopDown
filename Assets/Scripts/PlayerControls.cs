@@ -13,23 +13,18 @@ public class PlayerControls : MonoBehaviour
     private GridLayout gl;
     private Tilemap tileMap;
 
-    //Input
-    public PlayerInput playerActionAsset;
-    private InputAction moveInput;
-
     //Movement
-    private Vector2 movement;
+    private Vector2 movementInput = Vector2.zero;
+    [SerializeField] float playerSpeed;
 
     //Harvest
     private bool harvesting = false;
 
-    [SerializeField] float playerSpeed;
+    
 
     // Start is called before the first frame update
     void Awake()
     {
-        playerActionAsset = new PlayerInput();
-
         rb = GetComponent<Rigidbody2D>();
 
         mainCam = Camera.main;
@@ -39,11 +34,7 @@ public class PlayerControls : MonoBehaviour
 
     private void OnEnable()
     {
-        playerActionAsset.Enable();
-        moveInput = playerActionAsset.Player.Move;
 
-        playerActionAsset.Player.Harvest.started += DoHarvest;
-        playerActionAsset.Player.Harvest.canceled += StopHarvest;
     }
 
     private void DoHarvest(InputAction.CallbackContext obj)
@@ -59,11 +50,25 @@ public class PlayerControls : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        movement = Vector2.zero + moveInput.ReadValue<Vector2>();
-
-        rb.velocity = movement * Time.deltaTime * playerSpeed;
-
+      
         //FindTile();
+    }
+
+    private void FixedUpdate()
+    {
+        //Player Movement
+        Vector2 moveForce = movementInput * playerSpeed * Time.fixedDeltaTime;
+        rb.AddForce(moveForce);
+    }
+
+    private void OnMove(InputValue value)
+    {
+        movementInput = value.Get<Vector2>();
+    }
+
+    private void OnUse(InputValue value)
+    {
+        
     }
 
     private void FindTile()
